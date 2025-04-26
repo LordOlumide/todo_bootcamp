@@ -1,3 +1,5 @@
+import 'package:bootcamp_1/screens/home_screen.dart';
+import 'package:bootcamp_1/screens/todo_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -7,7 +9,39 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blue,
-      body: Text('Welcome to TODO App'),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Welcome to\nTODO App',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 48,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+            SizedBox(height: 20),
+            FilledButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return TodoScreen();
+                    },
+                  ),
+                );
+              },
+              style: ButtonStyle(
+                backgroundColor: WidgetStatePropertyAll(Colors.blueAccent),
+              ),
+              child: Text('Start', style: TextStyle(fontSize: 21)),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
