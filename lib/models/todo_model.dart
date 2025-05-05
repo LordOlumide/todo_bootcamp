@@ -1,6 +1,9 @@
 class Todo {
   final String content;
-  final bool isDone;
+  // final bool isDone;
 
-  const Todo({required this.content, required this.isDone});
+  const Todo({
+    required this.content,
+    // required this.isDone,
+  });
 }

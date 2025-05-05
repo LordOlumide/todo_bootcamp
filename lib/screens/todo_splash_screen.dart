@@ -1,9 +1,8 @@
-import 'package:bootcamp_1/screens/home_screen.dart';
 import 'package:bootcamp_1/screens/todo_screen.dart';
 import 'package:flutter/material.dart';
 
-class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
+class TodoSplashScreen extends StatelessWidget {
+  const TodoSplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

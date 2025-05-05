@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 
 class TodoContainer extends StatelessWidget {
   final Todo todo;
-  final Function(bool?) onTodoChanged;
+  final bool isSelected;
+  final Function(bool) onTodoChanged;
 
   const TodoContainer({
     super.key,
     required this.todo,
+    required this.isSelected,
     required this.onTodoChanged,
   });
 
@@ -17,9 +19,11 @@ class TodoContainer extends StatelessWidget {
       child: Row(
         children: [
           Checkbox(
-            value: todo.isDone,
+            value: isSelected,
             onChanged: (bool? newValue) {
-              onTodoChanged(newValue);
+              if (newValue != null) {
+                onTodoChanged(newValue);
+              }
             },
           ),
           Text(todo.content),
