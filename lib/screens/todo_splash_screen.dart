@@ -34,9 +34,12 @@ class TodoSplashScreen extends StatelessWidget {
                 );
               },
               style: ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll(Colors.blueAccent),
+                backgroundColor: WidgetStatePropertyAll(Colors.white),
               ),
-              child: Text('Start', style: TextStyle(fontSize: 21)),
+              child: Text(
+                'Start',
+                style: TextStyle(fontSize: 21, color: Colors.blueAccent),
+              ),
             ),
           ],
         ),

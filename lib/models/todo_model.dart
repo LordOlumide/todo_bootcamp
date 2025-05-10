@@ -6,4 +6,9 @@ class Todo {
     required this.content,
     // required this.isDone,
   });
+
+  @override
+  String toString() {
+    return 'Todo(content: $content)';
+  }
 }
