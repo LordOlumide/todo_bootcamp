@@ -11,16 +11,10 @@ class TodoScreen extends StatefulWidget {
 }
 
 class _TodoScreenState extends State<TodoScreen> {
-  List<Todo> dummyTodos = [
-    Todo(content: 'Buy milk'),
-    Todo(content: 'Buy fish'),
-    Todo(content: 'Sweep the house'),
-  ];
+  List<Todo> todos = [];
 
   @override
   Widget build(BuildContext context) {
-    print(dummyTodos);
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -46,7 +40,7 @@ class _TodoScreenState extends State<TodoScreen> {
           );
           if (result != null && result is String) {
             setState(() {
-              dummyTodos.add(Todo(content: result));
+              todos.add(Todo(content: result, isDone: false));
             });
           }
         },
@@ -57,14 +51,17 @@ class _TodoScreenState extends State<TodoScreen> {
       ),
       body: Column(
         children: [
-          for (int index = 0; index < dummyTodos.length; index++)
+          for (int index = 0; index < todos.length; index++)
             TodoContainer(
-              todo: dummyTodos[index],
-              isSelected: true,
+              todo: todos[index],
               onTodoChanged: (bool newValue) {
-                // setState(() {
-                //   states[0] = !states[0];
-                // });
+                Todo newTodo = Todo(
+                  content: todos[index].content,
+                  isDone: !todos[index].isDone,
+                );
+                setState(() {
+                  todos[index] = newTodo;
+                });
               },
             ),
         ],

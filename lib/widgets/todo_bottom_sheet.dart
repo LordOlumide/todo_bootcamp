@@ -42,7 +42,7 @@ class _TodoBottomSheetState extends State<TodoBottomSheet> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
               ),
               const SizedBox(height: 10),
-              TextField(controller: _controller),
+              TextField(controller: _controller, autofocus: true),
               const SizedBox(height: 30),
               ElevatedButton(
                 onPressed: () {

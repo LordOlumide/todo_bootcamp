@@ -1,14 +1,14 @@
 class Todo {
   final String content;
-  // final bool isDone;
+  final bool isDone;
 
   const Todo({
     required this.content,
-    // required this.isDone,
+    required this.isDone,
   });
 
   @override
   String toString() {
-    return 'Todo(content: $content)';
+    return 'Todo(content: $content, isDone: $isDone)';
   }
 }
