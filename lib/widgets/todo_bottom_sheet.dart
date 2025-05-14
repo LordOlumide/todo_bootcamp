@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class TodoBottomSheet extends StatefulWidget {
-  const TodoBottomSheet({super.key});
+  final String? initialText;
+
+  const TodoBottomSheet({super.key, this.initialText});
 
   @override
   State<TodoBottomSheet> createState() => _TodoBottomSheetState();
@@ -9,6 +11,14 @@ class TodoBottomSheet extends StatefulWidget {
 
 class _TodoBottomSheetState extends State<TodoBottomSheet> {
   final TextEditingController _controller = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.initialText != null) {
+      _controller.text = widget.initialText!;
+    }
+  }
 
   @override
   void dispose() {
@@ -42,11 +52,15 @@ class _TodoBottomSheetState extends State<TodoBottomSheet> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
               ),
               const SizedBox(height: 10),
-              TextField(controller: _controller, autofocus: true),
+              TextField(
+                controller: _controller,
+                autofocus: true,
+                maxLines: null,
+              ),
               const SizedBox(height: 30),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pop(context, _controller.text);
+                  Navigator.pop(context, _controller.text.trim());
                 },
                 style: ButtonStyle(
                   fixedSize: WidgetStatePropertyAll(Size(130, 40)),
